@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD : root
+      MYSQL_DATABASE : sbdb
+    volumes:
+      - db-data:/var/lib/mysql/
+    networks:
+      - sbdb 
+  app:
+    depends_on: 
+      - db
+    build:
+      context: .
+      dockerfile: v1.Dockerfile
+    ports:
+      - 8000:8000
+    container_name: app
+    command: >
+      /bin/bash -c "
+        sleep 40;
+      "
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sbdb
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_PROFILES_ACTIVE: test
+    restart: always
+    networks: 
+      - sbdb  
+networks:
+  sbdb:    
+volumes:
+  db-data:
+  

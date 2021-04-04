@@ -13,6 +13,7 @@
 	<artifactId>sb-jenkins</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sb-jenkins</name>
+	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot with jenkins and mysql</description>
 	<properties>
 		<java.version>11</java.version>
@@ -54,6 +55,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<layers>
+						<enabled>true</enabled>
+					</layers>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>com.sbjenkins.SbJenkinsApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -79,7 +92,6 @@
 							</goals>
 						</execution>
 					</executions>
-					<skipTests>false</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>

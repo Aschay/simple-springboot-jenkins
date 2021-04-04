@@ -9,7 +9,7 @@ pipeline {
         git branch: 'main', url: 'https://github.com/Aschay/simple-springboot-jenkins.git'
       }
     }
-    stage('Build-App') {
+    stage('Building') {
       steps {
         sh "cd sb-jenkins && mvn package -DskipTests"
       }
@@ -17,7 +17,7 @@ pipeline {
     stage('Test') {
       steps {
         echo "Test Stage"
-        sh "cd sb-jenkins && mvn -Dtest "
+        sh "cd sb-jenkins && mvn test "
       }
     }
   }

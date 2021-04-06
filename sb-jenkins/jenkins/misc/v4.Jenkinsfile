@@ -19,7 +19,7 @@ node {
      itApp .pull()
      itApp.inside("--link ${db.id}:mysql") { 
           sh 'cd sb-jenkins  && mvn clean verify -Dspring.profiles.active=test -Dskip.surefire.tests '    
-          //add sleep if the database is not ready yet to use wait-for-it script in dockerfile               
+          //add sleep if the database is not ready yet or just use wait-for-it script in dockerfile               
      }                                   
      db.stop()
    }                                     

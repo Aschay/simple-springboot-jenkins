@@ -10,11 +10,14 @@ job('simple-sb-jenkins-build') {
     triggers {
         scm('H/5 * * * *')
     }
-    wrappers {
-        maven ('m3') 
-         
-    }
     steps {
-        shell( "cd sb-jenkins && mvn clean package -DskipTests ")
+        shell( "cd sb-jenkins")
+        maven {
+            goals('clean')
+            goals('package')
+            rootPOM("sb-jenkins/pom.xml")
+            properties(skipTests: true)
+            mavenInstallation('M3')
+        }
     }
 }

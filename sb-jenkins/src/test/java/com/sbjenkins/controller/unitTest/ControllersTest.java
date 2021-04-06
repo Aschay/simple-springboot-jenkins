@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -63,16 +62,6 @@ public class ControllersTest {
 					.getContentAsString(), false);
 		}
 
-	@Value("${app.message}")
-	private String envMessage;
-		@Test 
-		public void testEnvEndpoint() throws Exception {
-			RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/env").accept(MediaType.ALL_VALUE);
-			String result = mvc.perform(requestBuilder).andReturn().getResponse().getContentAsString();
-			String expected =  envMessage;
-			assertEquals(expected, result);
-			
-		}
 		@Test 
 		public void testInfoEndpoint() throws Exception {
 			RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/application").accept(MediaType.ALL_VALUE);

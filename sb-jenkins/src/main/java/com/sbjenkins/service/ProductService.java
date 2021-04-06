@@ -15,13 +15,12 @@ import com.sbjenkins.repository.ProductRepository;
 public class ProductService {
 	@Autowired ProductRepository productRep;
 	
-	
 	public List<Product> getAllProducts(){
 		List<Product> pList = productRep.findAll();
-        if(pList.size() > 0) {
+        if(pList!=null) {
             return pList;
         } else {
-            return new ArrayList<Product>();
+            return new ArrayList<>();
         }
     }
 

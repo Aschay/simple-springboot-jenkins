@@ -25,12 +25,6 @@ public class InfoController {
 	@Value("${server.port}")
 	private int serverPort;
 	
-	@GetMapping("/env")
-	public String getDdbEnv() {
-		return envMessage;
-	}
-	
-	
 	@GetMapping(path = "/application")
 	public String getApp() {
 		return "Application running on " + service.retrieveInstanceInfo()+"on port : "+serverPort;

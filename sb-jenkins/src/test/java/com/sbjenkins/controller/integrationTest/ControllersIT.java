@@ -34,7 +34,7 @@ public class ControllersIT {
 	    ResponseEntity<Product[]> result = this.restTemplate.getForEntity(uri, Product[].class);
 	    Assert.assertEquals(200, result.getStatusCodeValue());
 	    int res = result.getBody().length;
-	    Assert.assertEquals(res,3);
+	    Assert.assertEquals(3,res);
 	  
 	}
 	@Test

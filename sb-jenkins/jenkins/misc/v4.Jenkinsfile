@@ -18,7 +18,7 @@ node {
      def itApp = docker.image('maven:3.6.3-openjdk-11-slim')
      itApp .pull()
      itApp.inside("--link ${db.id}:mysql") { 
-          sh 'cd sb-jenkins  && mvn clean verify -Dspring.profiles.active=test '    
+          sh 'cd sb-jenkins  && mvn clean verify -Dspring.profiles.active=test -Dskip.surefire.tests '    
           //add sleep if the database is not ready yet to use wait-for-it script in dockerfile               
      }                                   
      db.stop()

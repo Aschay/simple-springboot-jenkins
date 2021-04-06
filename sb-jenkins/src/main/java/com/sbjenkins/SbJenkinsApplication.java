@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SbJenkinsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SbJenkinsApplication.class, args);
+		SpringApplication.run(SbJenkinsApplication.class);
 	}
 
 }

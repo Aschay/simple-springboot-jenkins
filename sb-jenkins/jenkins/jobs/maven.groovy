@@ -11,7 +11,7 @@ job('simple-sb-jenkins-build') {
         scm('H/5 * * * *')
     }
     wrappers {
-        maven ('maven') 
+        maven ('m3') 
          
     }
     steps {

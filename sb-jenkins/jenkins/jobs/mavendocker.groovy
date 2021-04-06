@@ -11,13 +11,7 @@ job('sb-jenkins-build') {
         scm('H/5 * * * *')
     }
     steps {
-        maven {
-            goals('clean')
-            goals('package')
-            rootPOM("sb-jenkins/pom.xml")
-            properties(skipTests: true)
-            mavenInstallation('M3')
-        }
+        shell ('cd sb-jenkins && chmod +x mvnw  && ./mvnw clean install -DskipTests ')
         dockerBuildAndPublish {
             buildContext("sb-jenkins/")
             repositoryName('aschay/docker-sb')

@@ -1,5 +1,5 @@
 
-job('sb-jenkins-build-publish') {
+job('sb-jenkins-build') {
     scm {
         git('https://github.com/Aschay/simple-springboot-jenkins.git') { 
             node -> 
@@ -17,6 +17,16 @@ job('sb-jenkins-build-publish') {
             rootPOM("sb-jenkins/pom.xml")
             properties(skipTests: true)
             mavenInstallation('M3')
+        }
+        dockerBuildAndPublish {
+            buildContext("sb-jenkins/")
+            repositoryName('aschay/docker-sb')
+            tag('v0')
+            registryCredentials('dockerhub')
+            forcePull(false)
+            forceTag(false)
+            createFingerprints(false)
+            skipDecorate()
         }
     }
 }

@@ -13,7 +13,7 @@
 	<artifactId>sb-jenkins</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sb-jenkins</name>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot with jenkins and mysql</description>
 	<properties>
 		<java.version>11</java.version>

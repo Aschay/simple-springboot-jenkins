@@ -16,7 +16,10 @@
 	<packaging>war</packaging>
 	<description>Demo project for Spring Boot with jenkins and mysql</description>
 	<properties>
-		<java.version>11</java.version>
+		<!-- <java.version>11</java.version> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<!-- expensive in Integration <dependency> <groupId>org.springframework.boot</groupId> 
@@ -111,11 +114,11 @@
 					</includes>
 				</configuration>
 			</plugin>
-	<!-- code analysis -->
+			<!-- code analysis -->
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
-				 <version>3.7.0.1746</version>
+				<version>3.7.0.1746</version>
 				<executions>
 					<execution>
 						<phase>verify</phase>
